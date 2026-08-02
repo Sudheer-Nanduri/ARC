@@ -1,0 +1,2231 @@
+{
+  "version": 6,
+  "title": "ARC Compliance Report",
+  "timestamp_utc": "2026-08-02T06:50:01.059199+00:00",
+  "timestamp_local": "2026-08-02T12:20:01.059199+05:30",
+  "generated_at_display": "02 Aug 2026, 12:20 UTC+05:30",
+  "model_details": {
+    "model_name": "Demo elements",
+    "model_path": null,
+    "source": "Demo elements",
+    "stage": "concept",
+    "run_context": "CLI (headless)",
+    "rule_preset": "custom",
+    "rules_path": "arc\\core\\rules"
+  },
+  "metadata": {
+    "model_path": null,
+    "model_name": "Demo elements",
+    "source": "Demo elements",
+    "stage": "concept",
+    "run_context": "CLI (headless)",
+    "rule_preset": "custom",
+    "rules_path": "arc\\core\\rules"
+  },
+  "model_summary": {
+    "total_elements": 8,
+    "total_rules": 12,
+    "elements_with_results": 10,
+    "rules_with_results": 10,
+    "pass_count": 13,
+    "fail_count": 1,
+    "inconclusive_count": 5,
+    "human_required_count": 0,
+    "not_applicable_count": 0,
+    "unsupported_count": 0,
+    "compliance_score": 0.9286,
+    "pair_counts": {
+      "pass": 13,
+      "fail": 1,
+      "inconclusive": 5,
+      "human_required": 0,
+      "not_applicable": 0,
+      "unsupported": 0
+    },
+    "rule_counts": {
+      "evaluated": 7,
+      "not_applicable": 3,
+      "any_fail": 1,
+      "any_human_required": 0,
+      "skipped": 2
+    },
+    "rule_axis_score": 0.8571,
+    "element_counts": {
+      "touched": 8,
+      "untouched": 0,
+      "any_fail": 1,
+      "any_human_required": 0
+    },
+    "aggregate_counts": {
+      "pass": 0,
+      "fail": 0,
+      "inconclusive": 1,
+      "human_required": 0,
+      "not_applicable": 2,
+      "unsupported": 0
+    },
+    "waiver_breakdown": {
+      "open_fails": 1,
+      "waived_fails": 0,
+      "invalid_waivers": 0,
+      "superseded_waivers": 0
+    },
+    "human_reason_breakdown": {}
+  },
+  "category_summaries": [
+    {
+      "category": "accessibility",
+      "total_checked": 7,
+      "pass_count": 6,
+      "fail_count": 1,
+      "inconclusive_count": 0,
+      "human_required_count": 0,
+      "not_applicable_count": 0,
+      "unsupported_count": 0
+    },
+    {
+      "category": "fire_egress",
+      "total_checked": 6,
+      "pass_count": 1,
+      "fail_count": 0,
+      "inconclusive_count": 5,
+      "human_required_count": 0,
+      "not_applicable_count": 0,
+      "unsupported_count": 0
+    },
+    {
+      "category": "safety",
+      "total_checked": 1,
+      "pass_count": 1,
+      "fail_count": 0,
+      "inconclusive_count": 0,
+      "human_required_count": 0,
+      "not_applicable_count": 0,
+      "unsupported_count": 0
+    },
+    {
+      "category": "spatial",
+      "total_checked": 1,
+      "pass_count": 0,
+      "fail_count": 0,
+      "inconclusive_count": 1,
+      "human_required_count": 0,
+      "not_applicable_count": 0,
+      "unsupported_count": 0
+    },
+    {
+      "category": "ventilation",
+      "total_checked": 7,
+      "pass_count": 5,
+      "fail_count": 0,
+      "inconclusive_count": 0,
+      "human_required_count": 0,
+      "not_applicable_count": 2,
+      "unsupported_count": 0
+    }
+  ],
+  "severity_summaries": [
+    {
+      "severity": "critical",
+      "count": 9
+    },
+    {
+      "severity": "major",
+      "count": 12
+    },
+    {
+      "severity": "minor",
+      "count": 1
+    }
+  ],
+  "rule_summaries": [
+    {
+      "rule_id": "NBC_ACC_04",
+      "total_checked": 1,
+      "pass_count": 1,
+      "fail_count": 0,
+      "inconclusive_count": 0
+    },
+    {
+      "rule_id": "NBC_SAFE_01",
+      "total_checked": 1,
+      "pass_count": 1,
+      "fail_count": 0,
+      "inconclusive_count": 0
+    },
+    {
+      "rule_id": "NBC_VENT_02",
+      "total_checked": 1,
+      "pass_count": 0,
+      "fail_count": 0,
+      "inconclusive_count": 1
+    },
+    {
+      "rule_id": "corridor_width",
+      "total_checked": 1,
+      "pass_count": 0,
+      "fail_count": 0,
+      "inconclusive_count": 1
+    },
+    {
+      "rule_id": "dcr_fire_01",
+      "total_checked": 1,
+      "pass_count": 1,
+      "fail_count": 0,
+      "inconclusive_count": 0
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "total_checked": 5,
+      "pass_count": 0,
+      "fail_count": 0,
+      "inconclusive_count": 5
+    },
+    {
+      "rule_id": "nbc_acc_01",
+      "total_checked": 1,
+      "pass_count": 0,
+      "fail_count": 1,
+      "inconclusive_count": 0
+    },
+    {
+      "rule_id": "nbc_acc_02",
+      "total_checked": 5,
+      "pass_count": 5,
+      "fail_count": 0,
+      "inconclusive_count": 0
+    },
+    {
+      "rule_id": "nbc_vent_01",
+      "total_checked": 5,
+      "pass_count": 5,
+      "fail_count": 0,
+      "inconclusive_count": 0
+    },
+    {
+      "rule_id": "window_vent_ratio",
+      "total_checked": 1,
+      "pass_count": 0,
+      "fail_count": 0,
+      "inconclusive_count": 1
+    }
+  ],
+  "top_failed_rules": [
+    {
+      "rule_id": "nbc_acc_01",
+      "fail_count": 1
+    }
+  ],
+  "top_failed_elements": [
+    {
+      "element_id": "door1",
+      "fail_count": 1
+    }
+  ],
+  "advanced_insights": {
+    "spatial_conflict_count": 1,
+    "route_analysis_count": 0,
+    "unique_blocking_elements": 2,
+    "top_blocking_elements": [
+      {
+        "element_id": "railing1",
+        "impact_count": 1
+      },
+      {
+        "element_id": "stair1",
+        "impact_count": 1
+      }
+    ],
+    "route_length_summary_m": {
+      "count": 0,
+      "max": null,
+      "avg": null
+    },
+    "measurement_methods": [
+      {
+        "measurement_method": "approach_zone_aabb",
+        "count": 1
+      }
+    ],
+    "flagship_findings": [
+      {
+        "type": "spatial_conflict",
+        "rule_id": "nbc_acc_01",
+        "element_id": "door1",
+        "message": "Wheelchair approach blocked: 2 modeled obstruction(s) intrude into the required manoeuvring zones on both pull/push assignments",
+        "blocking_elements": [
+          "railing1",
+          "stair1"
+        ]
+      }
+    ]
+  },
+  "evidence_summary": {
+    "results_with_evidence": 22,
+    "results_total": 22,
+    "geometry_tier_distribution": {
+      "property": 1,
+      "aggregate": 3,
+      "aabb": 18
+    },
+    "confidence_distribution": {
+      "reported": 1,
+      "counted": 3,
+      "approximate": 18
+    },
+    "measurement_source_distribution": {
+      "property": 1,
+      "selection": 3,
+      "aabb_derived": 1,
+      "python_rule": 17
+    }
+  },
+  "element_results": [
+    {
+      "rule_id": "NBC_ACC_04",
+      "element_id": "door1",
+      "status": "PASS",
+      "passed": true,
+      "message": "width=1.000 m \u2265 min=0.900 m",
+      "details": {
+        "width": 1.0,
+        "min_width": 0.9
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1.0,
+          0.2,
+          2.1
+        ]
+      },
+      "measured_value": 1.0,
+      "expected_value": 0.9,
+      "delta": 0.09999999999999998,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:00.991187+00:00",
+      "measurement_method": "property_lookup",
+      "measurement_source": "property",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "NBC 2016, Part 3 \u00a74.3.1",
+        "element_guid": "door1",
+        "geometry_tier": "property",
+        "measurement_method": "property_lookup",
+        "measurement_source": "property",
+        "confidence_label": "reported",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.991227+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "NBC_VENT_02",
+      "element_id": "class:IfcWindow",
+      "status": "NOT_APPLICABLE",
+      "passed": null,
+      "message": "No IfcWindow in model",
+      "details": {
+        "target_class": "IfcWindow",
+        "dormant_cause": "class_absent"
+      },
+      "aabb": null,
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "minor",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:00.991245+00:00",
+      "measurement_method": null,
+      "measurement_source": null,
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "Demo geometric rule",
+        "element_guid": "class:IfcWindow",
+        "geometry_tier": "aggregate",
+        "measurement_method": "aggregate",
+        "measurement_source": "selection",
+        "confidence_label": "counted",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.991256+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "class",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "NBC_SAFE_01",
+      "element_id": "railing1",
+      "status": "PASS",
+      "passed": true,
+      "message": "height=1.100 m \u2265 min=1.000 m",
+      "details": {
+        "height": 1.1,
+        "min_height": 1.0
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          3.0,
+          0.1,
+          1.1
+        ]
+      },
+      "measured_value": 1.1,
+      "expected_value": 1.0,
+      "delta": 0.10000000000000009,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "safety",
+      "timestamp": "2026-08-02T06:50:00.991276+00:00",
+      "measurement_method": "aabb_height",
+      "measurement_source": "aabb_derived",
+      "geometry_tier": "aabb",
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "NBC 2016, Part 4 \u00a77.2",
+        "element_guid": "railing1",
+        "geometry_tier": "aabb",
+        "measurement_method": "aabb_height",
+        "measurement_source": "aabb_derived",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [
+          "AABB proxy used; actual geometry may differ"
+        ],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.991285+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "corridor_width",
+      "element_id": "class:IfcSpace",
+      "status": "INCONCLUSIVE",
+      "passed": null,
+      "message": "Selector matched no elements: IfcSpace present but no element satisfies {'LongName': 'LOBBY'}",
+      "details": {
+        "gate": "data_tagging_gap",
+        "target_class": "IfcSpace",
+        "property_filter": {
+          "LongName": "LOBBY"
+        }
+      },
+      "aabb": null,
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "spatial",
+      "timestamp": "2026-08-02T06:50:00.994998+00:00",
+      "measurement_method": null,
+      "measurement_source": null,
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "NBC 2016, Part 3 \u00a74.3.2",
+        "element_guid": "class:IfcSpace",
+        "geometry_tier": "aggregate",
+        "measurement_method": "aggregate",
+        "measurement_source": "selection",
+        "confidence_label": "counted",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.995019+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "class",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "dcr_fire_01",
+      "element_id": "stair1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Stair width=1.800 m \u2265 min=1.5 m (residential)",
+      "details": {
+        "measured_width_m": 1.8,
+        "required_width_m": 1.5,
+        "building_type": "residential",
+        "viz": [
+          {
+            "type": "dimension_line",
+            "start": [
+              0,
+              2.0,
+              0.1
+            ],
+            "end": [
+              1.8,
+              2.0,
+              0.1
+            ],
+            "measured": 1.8,
+            "required": 1.5,
+            "label": "Stair width (residential)"
+          }
+        ],
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1.8,
+          4.0,
+          3.0
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "fire_egress",
+      "timestamp": "2026-08-02T06:50:00.996965+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "stair1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.996989+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "element_id": "p1",
+      "status": "INCONCLUSIVE",
+      "passed": null,
+      "message": "No fire exit elements found in model -> tag exit doors with IsFireExit=True.",
+      "details": {
+        "missing": "fire_exit_elements"
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          3.5,
+          3.5,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "fire_egress",
+      "timestamp": "2026-08-02T06:50:00.999554+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "p1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.999576+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "element_id": "p2",
+      "status": "INCONCLUSIVE",
+      "passed": null,
+      "message": "No fire exit elements found in model -> tag exit doors with IsFireExit=True.",
+      "details": {
+        "missing": "fire_exit_elements"
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          2.0,
+          2.0,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "fire_egress",
+      "timestamp": "2026-08-02T06:50:00.999587+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "p2",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.999594+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "element_id": "room1",
+      "status": "INCONCLUSIVE",
+      "passed": null,
+      "message": "No fire exit elements found in model -> tag exit doors with IsFireExit=True.",
+      "details": {
+        "missing": "fire_exit_elements"
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          4.0,
+          3.5,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "fire_egress",
+      "timestamp": "2026-08-02T06:50:00.999601+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "room1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.999607+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "element_id": "kitchen1",
+      "status": "INCONCLUSIVE",
+      "passed": null,
+      "message": "No fire exit elements found in model -> tag exit doors with IsFireExit=True.",
+      "details": {
+        "missing": "fire_exit_elements"
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          2.8,
+          2.0,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "fire_egress",
+      "timestamp": "2026-08-02T06:50:00.999614+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "kitchen1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.999619+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "element_id": "bath1",
+      "status": "INCONCLUSIVE",
+      "passed": null,
+      "message": "No fire exit elements found in model -> tag exit doors with IsFireExit=True.",
+      "details": {
+        "missing": "fire_exit_elements"
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1.5,
+          1.8,
+          2.4
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "fire_egress",
+      "timestamp": "2026-08-02T06:50:00.999626+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "bath1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:00.999631+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "nbc_acc_01",
+      "element_id": "door1",
+      "status": "FAIL",
+      "passed": false,
+      "message": "Wheelchair approach blocked: 2 modeled obstruction(s) intrude into the required manoeuvring zones on both pull/push assignments",
+      "details": {
+        "measurement_method": "approach_zone_aabb",
+        "zone_width_m": 1.5,
+        "pull_depth_m": 1.5,
+        "push_depth_m": 1.2,
+        "blocking_elements": [
+          "railing1",
+          "stair1"
+        ],
+        "viz": [
+          {
+            "type": "clearance_zone",
+            "aabb": {
+              "min": [
+                -0.25,
+                0.2,
+                0
+              ],
+              "max": [
+                1.25,
+                1.7,
+                2.0
+              ]
+            },
+            "label": "Approach zone A (1.5m)"
+          },
+          {
+            "type": "clearance_zone",
+            "aabb": {
+              "min": [
+                -0.25,
+                -1.5,
+                0
+              ],
+              "max": [
+                1.25,
+                0,
+                2.0
+              ]
+            },
+            "label": "Approach zone B (1.5m)"
+          },
+          {
+            "type": "bbox",
+            "aabb": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                3.0,
+                0.1,
+                1.1
+              ]
+            },
+            "color": "blocker",
+            "label": "Obstruction"
+          },
+          {
+            "type": "bbox",
+            "aabb": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                1.8,
+                4.0,
+                3.0
+              ]
+            },
+            "color": "blocker",
+            "label": "Obstruction"
+          }
+        ],
+        "assumptions": [
+          "Approach zones constructed from door AABB; swing direction unknown",
+          "Zone containment within the storey boundary not verified from AABB data"
+        ],
+        "suggestion": "Clear the approach zones on both sides of the door or relocate the obstructing elements."
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1.0,
+          0.2,
+          2.1
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "critical",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:01.003203+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "NBC 2016, Part 3 \u00a74.3.1",
+        "element_guid": "door1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.003224+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_acc_02",
+      "element_id": "p1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Wheelchair turning circle: min_dim=3.500 m \u2265 1.5 m",
+      "details": {
+        "min_horizontal_dim_m": 3.5,
+        "required_turning_diameter_m": 1.5,
+        "viz": [
+          {
+            "type": "turning_circle",
+            "center": [
+              1.75,
+              1.75,
+              0
+            ],
+            "radius": 0.75,
+            "status": "pass",
+            "label": "1500mm turning circle"
+          }
+        ],
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          3.5,
+          3.5,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:01.004301+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "p1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.004316+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_acc_02",
+      "element_id": "p2",
+      "status": "PASS",
+      "passed": true,
+      "message": "Wheelchair turning circle: min_dim=2.000 m \u2265 1.5 m",
+      "details": {
+        "min_horizontal_dim_m": 2.0,
+        "required_turning_diameter_m": 1.5,
+        "viz": [
+          {
+            "type": "turning_circle",
+            "center": [
+              1.0,
+              1.0,
+              0
+            ],
+            "radius": 0.75,
+            "status": "pass",
+            "label": "1500mm turning circle"
+          }
+        ],
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          2.0,
+          2.0,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:01.004328+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "p2",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.004335+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_acc_02",
+      "element_id": "room1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Wheelchair turning circle: min_dim=3.500 m \u2265 1.5 m",
+      "details": {
+        "min_horizontal_dim_m": 3.5,
+        "required_turning_diameter_m": 1.5,
+        "viz": [
+          {
+            "type": "turning_circle",
+            "center": [
+              2.0,
+              1.75,
+              0
+            ],
+            "radius": 0.75,
+            "status": "pass",
+            "label": "1500mm turning circle"
+          }
+        ],
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          4.0,
+          3.5,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:01.004344+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "room1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.004350+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_acc_02",
+      "element_id": "kitchen1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Wheelchair turning circle: min_dim=2.000 m \u2265 1.5 m",
+      "details": {
+        "min_horizontal_dim_m": 2.0,
+        "required_turning_diameter_m": 1.5,
+        "viz": [
+          {
+            "type": "turning_circle",
+            "center": [
+              1.4,
+              1.0,
+              0
+            ],
+            "radius": 0.75,
+            "status": "pass",
+            "label": "1500mm turning circle"
+          }
+        ],
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          2.8,
+          2.0,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:01.004370+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "kitchen1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.004376+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_acc_02",
+      "element_id": "bath1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Wheelchair turning circle: min_dim=1.500 m \u2265 1.5 m",
+      "details": {
+        "min_horizontal_dim_m": 1.5,
+        "required_turning_diameter_m": 1.5,
+        "viz": [
+          {
+            "type": "turning_circle",
+            "center": [
+              0.75,
+              0.9,
+              0
+            ],
+            "radius": 0.75,
+            "status": "pass",
+            "label": "1500mm turning circle"
+          }
+        ],
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1.5,
+          1.8,
+          2.4
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "accessibility",
+      "timestamp": "2026-08-02T06:50:01.004385+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "bath1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.004391+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_vent_01",
+      "element_id": "p1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Ceiling height=2.800 m \u2265 min=2.75 m (habitable)",
+      "details": {
+        "measured_height_m": 2.8,
+        "required_height_m": 2.75,
+        "space_type": "parking",
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          3.5,
+          3.5,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:01.005630+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "p1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.005653+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_vent_01",
+      "element_id": "p2",
+      "status": "PASS",
+      "passed": true,
+      "message": "Ceiling height=2.800 m \u2265 min=2.75 m (habitable)",
+      "details": {
+        "measured_height_m": 2.8,
+        "required_height_m": 2.75,
+        "space_type": "parking",
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          2.0,
+          2.0,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:01.005667+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "p2",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.005674+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_vent_01",
+      "element_id": "room1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Ceiling height=2.800 m \u2265 min=2.75 m (habitable)",
+      "details": {
+        "measured_height_m": 2.8,
+        "required_height_m": 2.75,
+        "space_type": "habitable",
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          4.0,
+          3.5,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:01.005684+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "room1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.005691+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_vent_01",
+      "element_id": "kitchen1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Ceiling height=2.800 m \u2265 min=2.75 m (habitable)",
+      "details": {
+        "measured_height_m": 2.8,
+        "required_height_m": 2.75,
+        "space_type": "kitchen",
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          2.8,
+          2.0,
+          2.8
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:01.005700+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "kitchen1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.005706+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "nbc_vent_01",
+      "element_id": "bath1",
+      "status": "PASS",
+      "passed": true,
+      "message": "Ceiling height=2.400 m \u2265 min=2.4 m (non-habitable)",
+      "details": {
+        "measured_height_m": 2.4,
+        "required_height_m": 2.4,
+        "space_type": "bathroom",
+        "suggestion": ""
+      },
+      "aabb": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1.5,
+          1.8,
+          2.4
+        ]
+      },
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:01.005715+00:00",
+      "measurement_method": "python_rule",
+      "measurement_source": "python_rule",
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "bath1",
+        "geometry_tier": "aabb",
+        "measurement_method": "python_rule",
+        "measurement_source": "python_rule",
+        "confidence_label": "approximate",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.005721+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "element",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    },
+    {
+      "rule_id": "window_vent_ratio",
+      "element_id": "class:IfcWindow",
+      "status": "NOT_APPLICABLE",
+      "passed": null,
+      "message": "No IfcWindow in model",
+      "details": {
+        "target_class": "IfcWindow",
+        "dormant_cause": "class_absent"
+      },
+      "aabb": null,
+      "measured_value": null,
+      "expected_value": null,
+      "delta": null,
+      "tolerance": 0.0,
+      "confidence": {
+        "semantic": 0.0,
+        "geometry": 0.0,
+        "topology": 0.0
+      },
+      "severity": "major",
+      "category": "ventilation",
+      "timestamp": "2026-08-02T06:50:01.007155+00:00",
+      "measurement_method": null,
+      "measurement_source": null,
+      "geometry_tier": null,
+      "evidence": {
+        "rule_version": "1.0.0",
+        "rule_source": "",
+        "element_guid": "class:IfcWindow",
+        "geometry_tier": "aggregate",
+        "measurement_method": "aggregate",
+        "measurement_source": "selection",
+        "confidence_label": "counted",
+        "external_data_used": [],
+        "enrichment_sources": {},
+        "assumptions": [],
+        "compound_approximation": false,
+        "timestamp": "2026-08-02T06:50:01.007175+00:00",
+        "arc_version": "0.1.0"
+      },
+      "human_reason": null,
+      "arrival_path": null,
+      "scope": "class",
+      "affected_element_ids": [],
+      "waiver": null,
+      "waiver_state": null,
+      "waiver_invalidation_reason": null,
+      "provider_route": null
+    }
+  ],
+  "coverage_matrix": {
+    "stage": "concept",
+    "corpus_summary": {
+      "rules_in_pack": 12,
+      "rules_active_at_stage": 10,
+      "rules_evaluated": 7,
+      "rules_executable": 6,
+      "rules_not_applicable": 3,
+      "rules_skipped": 0,
+      "rules_stage_filtered": 2,
+      "elements_in_model": 8,
+      "elements_touched": 8,
+      "elements_untouched": 0,
+      "element_class_counts": {
+        "IfcDoor": 1,
+        "IfcRailing": 1,
+        "IfcSpace": 5,
+        "IfcStair": 1
+      },
+      "rule_element_pairs": 22,
+      "checkable_pairs": 14
+    },
+    "two_layer_checkability": {
+      "per_rule_layer": {
+        "executable_rules": 6,
+        "active_rules": 10,
+        "ratio": 0.6
+      },
+      "per_element_layer": {
+        "checkable_pairs": 14,
+        "total_pairs": 22,
+        "ratio": 0.6364
+      }
+    },
+    "per_rule": [
+      {
+        "rule_id": "NBC_ACC_04",
+        "title": "Door Clear Width",
+        "target_class": "IfcDoor",
+        "property_filter": null,
+        "category": "accessibility",
+        "severity": "critical",
+        "min_stage": "concept",
+        "source": "NBC 2016, Part 3 \u00a74.3.1",
+        "in_model": 1,
+        "selected": 1,
+        "result_count": 1,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "NBC_SAFE_01",
+        "title": "Railing Height",
+        "target_class": "IfcRailing",
+        "property_filter": null,
+        "category": "safety",
+        "severity": "critical",
+        "min_stage": "concept",
+        "source": "NBC 2016, Part 4 \u00a77.2",
+        "in_model": 1,
+        "selected": 1,
+        "result_count": 1,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "dcr_fire_01",
+        "title": "",
+        "target_class": "IfcStair",
+        "property_filter": null,
+        "category": "fire_egress",
+        "severity": "critical",
+        "min_stage": "concept",
+        "source": null,
+        "in_model": 1,
+        "selected": 1,
+        "result_count": 1,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "dcr_fire_03",
+        "title": "",
+        "target_class": "IfcSpace",
+        "property_filter": null,
+        "category": "fire_egress",
+        "severity": "critical",
+        "min_stage": "concept",
+        "source": null,
+        "in_model": 5,
+        "selected": 5,
+        "result_count": 5,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "inconclusive": 5,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "nbc_acc_01",
+        "title": "",
+        "target_class": "IfcDoor",
+        "property_filter": null,
+        "category": "accessibility",
+        "severity": "critical",
+        "min_stage": "concept",
+        "source": "NBC 2016, Part 3 \u00a74.3.1",
+        "in_model": 1,
+        "selected": 1,
+        "result_count": 1,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 1,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "nbc_acc_02",
+        "title": "",
+        "target_class": "IfcSpace",
+        "property_filter": null,
+        "category": "accessibility",
+        "severity": "major",
+        "min_stage": "concept",
+        "source": null,
+        "in_model": 5,
+        "selected": 5,
+        "result_count": 5,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 5,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "nbc_vent_01",
+        "title": "",
+        "target_class": "IfcSpace",
+        "property_filter": null,
+        "category": "ventilation",
+        "severity": "major",
+        "min_stage": "concept",
+        "source": null,
+        "in_model": 5,
+        "selected": 5,
+        "result_count": 5,
+        "rule_status": "evaluated",
+        "scope": "element",
+        "status_counts": {
+          "pass": 5,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "NBC_VENT_02",
+        "title": "Window Opening Height",
+        "target_class": "IfcWindow",
+        "property_filter": null,
+        "category": "ventilation",
+        "severity": "minor",
+        "min_stage": "concept",
+        "source": "Demo geometric rule",
+        "in_model": 0,
+        "selected": 0,
+        "result_count": 1,
+        "rule_status": "not_applicable",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "corridor_width",
+        "title": "",
+        "target_class": "IfcSpace",
+        "property_filter": {
+          "LongName": "LOBBY"
+        },
+        "category": "spatial",
+        "severity": "major",
+        "min_stage": "concept",
+        "source": "NBC 2016, Part 3 \u00a74.3.2",
+        "in_model": 5,
+        "selected": 0,
+        "result_count": 1,
+        "rule_status": "not_applicable",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "inconclusive": 1,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "window_vent_ratio",
+        "title": "",
+        "target_class": "IfcWindow",
+        "property_filter": null,
+        "category": "ventilation",
+        "severity": "major",
+        "min_stage": "concept",
+        "source": null,
+        "in_model": 0,
+        "selected": 0,
+        "result_count": 1,
+        "rule_status": "not_applicable",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "DCR_FIRE_02",
+        "title": "Stair Headroom",
+        "target_class": "IfcStair",
+        "property_filter": null,
+        "category": "fire_egress",
+        "severity": "critical",
+        "min_stage": "schematic",
+        "source": "NBC 2016, Part 4 \u00a75.2",
+        "in_model": 1,
+        "selected": 1,
+        "result_count": 0,
+        "rule_status": "stage_filtered",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "rule_id": "NBC_ACC_03",
+        "title": "Ramp Gradient",
+        "target_class": "IfcRamp",
+        "property_filter": null,
+        "category": "accessibility",
+        "severity": "critical",
+        "min_stage": "submission",
+        "source": "NBC 2016, Part 3 \u00a74.5",
+        "in_model": 0,
+        "selected": 0,
+        "result_count": 0,
+        "rule_status": "stage_filtered",
+        "scope": "element",
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "inconclusive": 0,
+          "human_required": 0,
+          "not_applicable": 0,
+          "unsupported": 0
+        }
+      }
+    ]
+  },
+  "coverage_gaps": [
+    {
+      "rule_id": "corridor_width",
+      "gap_type": "data_tagging_gap",
+      "affected_elements": [
+        "class:IfcSpace"
+      ],
+      "missing_data": "Selector matched no elements: IfcSpace present but no element satisfies {'LongName': 'LOBBY'}",
+      "suggested_action": "Tag the present elements with the property values the rule requires",
+      "responsible_actor": "BIM_manager",
+      "provider_route": "P4"
+    },
+    {
+      "rule_id": "dcr_fire_03",
+      "gap_type": "data_missing",
+      "affected_elements": [
+        "p1",
+        "p2",
+        "room1",
+        "kitchen1",
+        "bath1"
+      ],
+      "missing_data": "missing: fire_exit_elements",
+      "suggested_action": "Add missing properties in authoring tool or run enrichment",
+      "responsible_actor": "BIM_manager",
+      "provider_route": "P4"
+    }
+  ],
+  "clause_coverage": [
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.3.1",
+      "rule_ids": [
+        "NBC_ACC_04"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.5",
+      "rule_ids": [
+        "NBC_ACC_03"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.6 \u2014 Tactile Warning Strips",
+      "rule_ids": [],
+      "automatable": false,
+      "rationale": "Requires visual inspection of tactile surface placement and material"
+    },
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.7 \u2014 Signage and Wayfinding",
+      "rule_ids": [],
+      "automatable": false,
+      "rationale": "Requires subjective judgment of signage adequacy and legibility"
+    },
+    {
+      "clause_ref": "NBC 2016, Part 4 \u00a75.2",
+      "rule_ids": [
+        "DCR_FIRE_02"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 4 \u00a77.2",
+      "rule_ids": [
+        "NBC_SAFE_01"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 4 \u00a75.4 \u2014 Fire Escape Stair Width",
+      "rule_ids": [
+        "dcr_fire_01"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 4 \u00a75.6 \u2014 Travel Distance to Exit",
+      "rule_ids": [
+        "dcr_fire_03"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 8 \u00a73.4.1 \u2014 Natural Ventilation Area Ratio",
+      "rule_ids": [
+        "nbc_vent_01",
+        "window_vent_ratio"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.2 \u2014 Accessible Toilet Dimensions",
+      "rule_ids": [
+        "nbc_acc_02"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.1 \u2014 Door Approach Clearance",
+      "rule_ids": [
+        "nbc_acc_01"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "Mumbai DCR 2034, Reg. 36 \u2014 FSI Computation",
+      "rule_ids": [],
+      "automatable": false,
+      "rationale": "Requires external plot data, FSI tables, and zoning context not yet integrated"
+    },
+    {
+      "clause_ref": "Mumbai DCR 2034, Reg. 43 \u2014 Open Space Requirements",
+      "rule_ids": [],
+      "automatable": false,
+      "rationale": "Requires site boundary and setback data as external input"
+    },
+    {
+      "clause_ref": "Demo geometric rule",
+      "rule_ids": [
+        "NBC_VENT_02"
+      ],
+      "automatable": true,
+      "rationale": null
+    },
+    {
+      "clause_ref": "NBC 2016, Part 3 \u00a74.3.2",
+      "rule_ids": [
+        "corridor_width"
+      ],
+      "automatable": true,
+      "rationale": null
+    }
+  ]
+}

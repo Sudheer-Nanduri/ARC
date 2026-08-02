@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arc-spatial"
+version = "0.1.0"
+description = "Open-source compliance evidence engine for building models"
+requires-python = ">=3.10"
+# ARC is split by licence: arc/core is Apache-2.0, arc/spatial is GPL-3.0-or-later.
+# This distribution currently ships both, so the combined artefact is effectively
+# GPL-3.0-or-later. See LICENSE for the path-to-licence mapping.
+license = "Apache-2.0 AND GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE", "LICENSES/*.txt"]
+readme = "README.md"
+keywords = ["building-information-modeling", "compliance", "ifc", "openbim"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    # No "License ::" classifiers: PEP 639 forbids combining them with
+    # License-Expression above, and PyPI rejects distributions that do.
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+authors = [
+    { name = "Sudheer Kumar Nanduri" },
+    { name = "Ankan Karmakar" },
+    { name = "Venkata Santosh Kumar Delhi" },
+]
+dependencies = ["networkx>=3.0"]
+
+[project.optional-dependencies]
+pdf = ["reportlab>=4.0", "pillow>=10.0"]
+geometry = ["shapely>=2.0"]
+ifc = ["ifcopenshell"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+arc-check = "arc.core.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["arc"]
+exclude = ["arc/wheelhouse/**"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/paper_latest_version",
+    "/RELEASE_PROVENANCE.md",
+    "/results",
+    "/arc-*.zip",
+    "/.pytest_cache",
+    "/.venv",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

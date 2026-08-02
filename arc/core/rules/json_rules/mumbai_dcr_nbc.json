@@ -1,0 +1,69 @@
+[
+  {
+    "id": "NBC_ACC_04",
+    "title": "Door Clear Width",
+    "description": "Generic doorway minimum clear opening width for everyday review models.",
+    "selector": {"ifc_class": "IfcDoor"},
+    "check_type": "min_width",
+    "params": {"min_width": 0.9},
+    "severity": "critical",
+    "category": "accessibility",
+    "source": "NBC 2016, Part 3 §4.3.1",
+    "jurisdiction": "India",
+    "interpretation_notes": "Clear width measured as minimum unobstructed opening. AABB width used as proxy; actual clear width may differ with door frame offsets."
+  },
+  {
+    "id": "DCR_FIRE_02",
+    "title": "Stair Headroom",
+    "description": "Minimum vertical clearance above stair travel path.",
+    "selector": {"ifc_class": "IfcStair"},
+    "check_type": "min_height",
+    "params": {"min_height": 2.2},
+    "severity": "critical",
+    "min_stage": "schematic",
+    "category": "fire_egress",
+    "source": "NBC 2016, Part 4 §5.2",
+    "jurisdiction": "India",
+    "interpretation_notes": "Headroom measured from nosing line to soffit. AABB height used as approximation; actual headroom may vary along stair run."
+  },
+  {
+    "id": "NBC_VENT_02",
+    "title": "Window Opening Height",
+    "description": "Basic window opening height proxy using window geometry for quick demo reviews.",
+    "selector": {"ifc_class": "IfcWindow"},
+    "check_type": "min_height",
+    "params": {"min_height": 0.6},
+    "severity": "minor",
+    "category": "ventilation",
+    "source": "Demo geometric rule",
+    "jurisdiction": "Generic",
+    "interpretation_notes": "Demo rule only. Not tied to a specific code clause. Uses AABB height as window opening height proxy."
+  },
+  {
+    "id": "NBC_SAFE_01",
+    "title": "Railing Height",
+    "description": "Generic fall-protection railing minimum height review rule.",
+    "selector": {"ifc_class": "IfcRailing"},
+    "check_type": "min_height",
+    "params": {"min_height": 1.0},
+    "severity": "critical",
+    "category": "safety",
+    "source": "NBC 2016, Part 4 §7.2",
+    "jurisdiction": "India",
+    "interpretation_notes": "NBC specifies 1.0m minimum railing height from finished floor. AABB height used as proxy; actual measurement should be from adjacent floor to top of railing."
+  },
+  {
+    "id": "NBC_ACC_03",
+    "title": "Ramp Gradient",
+    "description": "Accessible ramp slope should not exceed 1:12 where ramp data is available.",
+    "selector": {"ifc_class": "IfcRamp"},
+    "check_type": "property_max",
+    "params": {"property": "slope", "max_value": 0.0833},
+    "severity": "critical",
+    "min_stage": "submission",
+    "category": "accessibility",
+    "source": "NBC 2016, Part 3 §4.5",
+    "jurisdiction": "India",
+    "interpretation_notes": "1:12 slope (8.33%) is the NBC maximum for accessible ramps. Slope property expected as ratio (rise/run). Landings at top/bottom not checked by this rule."
+  }
+]

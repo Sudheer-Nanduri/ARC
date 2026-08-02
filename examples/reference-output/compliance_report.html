@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ARC Compliance Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --surface: #ffffff;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #dbe2ea;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --danger-soft: #fee2e2;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #eff6ff 0%, var(--bg) 22%, #eef2ff 100%);
+      color: var(--ink);
+    }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 48%, #ecfeff 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+    .hero p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-3 { grid-column: span 3; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .metric {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .metric .label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .metric .value {
+      margin-top: 8px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .metric .metric-sub {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .small { font-size: 12px; }
+    /* GUID chips */
+    .guid-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-width: 100%;
+    }
+    .guid-chip {
+      display: inline-block;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 11.5px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      max-width: 280px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .guid-more {
+      font-size: 12px;
+      padding: 2px 6px;
+      align-self: center;
+    }
+    /* Pills + count badges for category tree */
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      letter-spacing: 0.02em;
+    }
+    .pill-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .count-badge {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #0f172a;
+      font-size: 11.5px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    /* Category > Rule > Status dropdown tree */
+    .category-tree details {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .category-tree details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: #f8fafc;
+      user-select: none;
+    }
+    .category-tree details summary::-webkit-details-marker { display: none; }
+    .category-tree details summary::before {
+      content: "▸";
+      display: inline-block;
+      width: 14px;
+      color: var(--muted);
+      transition: transform 0.15s ease;
+    }
+    .category-tree details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    .category-tree .cat-detail > summary {
+      background: linear-gradient(90deg, #ecfeff 0%, #f8fafc 100%);
+      font-size: 15px;
+    }
+    .category-tree .cat-body {
+      padding: 10px 14px 14px 14px;
+    }
+    .category-tree .rule-detail {
+      margin-top: 8px;
+      border: 1px solid #e5e7eb;
+    }
+    .category-tree .rule-detail > summary {
+      background: #ffffff;
+      font-size: 13.5px;
+    }
+    .category-tree .rule-body {
+      padding: 10px 14px 12px 14px;
+      background: #fafbfc;
+    }
+    .category-tree .rule-source {
+      margin-bottom: 8px;
+    }
+    .category-tree .status-detail {
+      margin-top: 6px;
+      border: 1px solid #eef2f7;
+      background: #ffffff;
+    }
+    .category-tree .status-detail > summary {
+      background: #ffffff;
+      font-size: 13px;
+      padding: 8px 12px;
+    }
+    .category-tree .status-detail > .guid-list {
+      padding: 10px 12px 12px 12px;
+    }
+    /* Coverage gaps table: keep GUID cell from blowing out the row */
+    .coverage-gaps-table td .guid-list {
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .status-bar {
+      margin-top: 16px;
+      display: flex;
+      height: 18px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .status-segment { height: 100%; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+      background: currentColor;
+    }
+    .meta-table, .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .meta-table td, .data-table td, .data-table th {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .meta-table td:first-child {
+      width: 160px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .data-table th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: #f8fafc;
+    }
+    .mini-bar {
+      width: 100%;
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .mini-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #f59e0b, #dc2626);
+      border-radius: 999px;
+    }
+    .list-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .list-card li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .insight-grid, .failure-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .insight-card, .failure-card {
+      background: #fcfcfd;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .insight-type {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .failure-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .detail-line {
+      margin: 7px 0;
+      line-height: 1.5;
+    }
+    .muted {
+      color: var(--muted);
+    }
+    /* Dimensional axis cards */
+    .axis-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .axis-card h3 { margin: 0 0 4px; font-size: 14px; }
+    .axis-total {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 8px 0 6px;
+    }
+    .axis-rows {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2px 8px;
+      font-size: 12px;
+    }
+    .axis-row {
+      display: contents;
+    }
+    .axis-row .axis-label { color: var(--muted); }
+    .axis-row .axis-value { font-weight: 600; text-align: right; }
+    /* Waiver section */
+    .waiver-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .chip-num {
+      display: inline-block;
+      min-width: 22px;
+      text-align: center;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .chip-open    { border-color: #DC2626; color: #DC2626; }
+    .chip-waived  { border-color: #7C3AED; color: #7C3AED; }
+    .chip-invalid    { border-color: #D97706; color: #D97706; }
+    .chip-superseded { border-color: #9CA3AF; color: #6B7280; }
+    .waiver-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .waiver-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-left: 4px solid #9CA3AF;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .waiver-applied    { border-left-color: #7C3AED; }
+    .waiver-invalid    { border-left-color: #D97706; }
+    .waiver-superseded { border-left-color: #9CA3AF; }
+    .waiver-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .waiver-state {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .waiver-applied .waiver-state    { background: #ede9fe; color: #7C3AED; }
+    .waiver-invalid .waiver-state    { background: #fef3c7; color: #92400E; }
+    .waiver-superseded .waiver-state { background: #f3f4f6; color: #6b7280; }
+    /* Routing route chip & scope badge */
+    .route-chip {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #ecfeff;
+      color: #0e7490;
+      font-family: ui-monospace, monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+    .scope-badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .scope-class { background: #dbeafe; color: #1e40af; }
+    .scope-model { background: #fae8ff; color: #86198f; }
+    @media (max-width: 1180px) {
+      .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .axis-card { grid-column: span 6; }
+    }
+    @media (max-width: 900px) {
+      .span-8, .span-6, .span-4, .span-3 { grid-column: span 12; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>ARC Compliance Report</h1>
+      <p>Demo elements</p>
+      <p>Generated 02 Aug 2026, 12:20 UTC+05:30 | Source: Demo elements</p>
+      <div class="metrics">
+        <div class="metric" title="Compliance Score = PASS / (PASS + FAIL). Inconclusive, Human-required, Not-applicable and Unsupported results are excluded from both numerator and denominator.">
+          <div class="label">Compliance Score</div>
+          <div class="value">92.9%</div>
+          <div class="metric-sub">13 PASS / 14 decided<br/><span class="muted small">= PASS &divide; (PASS + FAIL)</span></div>
+        </div>
+        <div class="metric"><div class="label">Failing Checks</div><div class="value">1</div></div>
+        <div class="metric" title="Per-rule checkability: of the rules active at the current design stage, the share that produced at least one PASS or FAIL.">
+          <div class="label">Per-rule Checkability</div>
+          <div class="value">60.0%</div>
+          <div class="metric-sub muted small">6 of 10 active rules executable</div>
+        </div>
+        <div class="metric" title="Per-element checkability: of every rule-element pair evaluated, the share that resolved to PASS or FAIL (the remaining pairs need data, judgement, or are NA/unsupported).">
+          <div class="label">Per-element Checkability</div>
+          <div class="value">63.6%</div>
+          <div class="metric-sub muted small">14 of 22 rule&ndash;element pairs decided</div>
+        </div>
+        <div class="metric"><div class="label">Coverage Gaps</div><div class="value">2</div></div>
+      </div>
+      <div class="status-bar"><div class="status-segment" style="width:68.42%;background:#16A34A" title="Pass: 13"></div><div class="status-segment" style="width:5.26%;background:#DC2626" title="Fail: 1"></div><div class="status-segment" style="width:26.32%;background:#D97706" title="Inconclusive: 5"></div><div class="status-segment" style="width:0.00%;background:#7C3AED" title="Needs human review: 0"></div><div class="status-segment" style="width:0.00%;background:#9CA3AF" title="Not applicable: 0"></div><div class="status-segment" style="width:0.00%;background:#EA580C" title="Unsupported: 0"></div></div>
+      <div class="legend">
+        <span style="color:#16A34A">Pass 13</span>
+        <span style="color:#DC2626">Fail 1</span>
+        <span style="color:#D97706">Inconclusive 5</span>
+        <span style="color:#7C3AED">Needs human review 0</span>
+        <span style="color:#9CA3AF">Not applicable 0</span>
+        <span style="color:#EA580C">Unsupported 0</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card span-12"><h2>Result distribution</h2><p class="muted small">Pair-axis counts across the rule pack and model. One block per status, width proportional to count.</p><svg viewBox="0 0 760 56" width="100%" height="56" preserveAspectRatio="none" role="img" aria-label="Result distribution bar"><g><rect x="0.0" y="0" width="520.0" height="56" fill="#16A34A"><title>PASS 13</title></rect><text x="260.0" y="32.0" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#ffffff" font-weight="600">13</text></g><g><rect x="520.0" y="0" width="40.0" height="56" fill="#DC2626"><title>FAIL 1</title></rect><text x="540.0" y="32.0" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#ffffff" font-weight="600">1</text></g><g><rect x="560.0" y="0" width="200.0" height="56" fill="#D97706"><title>INCONCLUSIVE 5</title></rect><text x="660.0" y="32.0" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#ffffff" font-weight="600">5</text></g></svg><div class="small" style="margin-top:10px;"><span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:10px;height:10px;background:#16A34A;border-radius:2px;"></span>Pass (13)</span> &nbsp; <span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:10px;height:10px;background:#DC2626;border-radius:2px;"></span>Fail (1)</span> &nbsp; <span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:10px;height:10px;background:#D97706;border-radius:2px;"></span>Inconclusive (5)</span></div></article>
+
+      <article class="card span-12"><h2>Compliance Coverage Matrix</h2><div class="metrics"><div class="metric" title="Total rules loaded for this run."><div class="label">Rules in pack</div><div class="value">12</div></div><div class="metric" title="Rules that produced at least one per-element verdict."><div class="label">Rules evaluated</div><div class="value">7</div></div><div class="metric" title="Rules whose selector matched no elements in this model — they only emitted a class- or model-scope marker."><div class="label">Rules not applicable</div><div class="value">3</div></div><div class="metric" title="Rules that produced no result of any kind in this run."><div class="label">Rules skipped</div><div class="value">0</div></div><div class="metric" title="Distinct elements the rule pack evaluated, out of total elements in the model."><div class="label">Elements checked</div><div class="value">8 / 8</div></div></div><p class="detail-line"><strong>Per-rule checkability:</strong> 6 of 10 active rules executable (60%). <strong>Per-element checkability:</strong> 14 of 22 rule–element pairs fully checkable (64%).</p><table class="data-table"><thead><tr><th title="Rule identifier">Rule</th><th title="Whether the rule ran on real elements in this model">State</th><th title="Target class of the rule">Target</th><th title="Elements of the target class in the model">In model</th><th title="Elements after full selector (incl. property filter)">Selected</th><th title="Compliant">Pass</th><th title="Non-compliant">Fail</th><th title="Inconclusive — verdict could not be reached, usually due to missing data">Inc</th><th title="Needs human review">Hum</th><th title="Unsupported — check type or geometry tier not implemented in this build">Uns</th></tr></thead><tbody><tr><td><strong>NBC_ACC_04</strong><br/><span style='color:#6b7280;font-size:12px'>NBC 2016, Part 3 §4.3.1</span></td><td>IfcDoor</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>NBC_SAFE_01</strong><br/><span style='color:#6b7280;font-size:12px'>NBC 2016, Part 4 §7.2</span></td><td>IfcRailing</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>dcr_fire_01</strong><br/><span style='color:#6b7280;font-size:12px'></span></td><td>IfcStair</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>dcr_fire_03</strong><br/><span style='color:#6b7280;font-size:12px'></span></td><td>IfcSpace</td><td>5</td><td>5</td><td>0</td><td>0</td><td>5</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>nbc_acc_01</strong><br/><span style='color:#6b7280;font-size:12px'>NBC 2016, Part 3 §4.3.1</span></td><td>IfcDoor</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>nbc_acc_02</strong><br/><span style='color:#6b7280;font-size:12px'></span></td><td>IfcSpace</td><td>5</td><td>5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>nbc_vent_01</strong><br/><span style='color:#6b7280;font-size:12px'></span></td><td>IfcSpace</td><td>5</td><td>5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule ran on at least one real element and produced per-element verdicts.'>evaluated</td></tr><tr><td><strong>NBC_VENT_02</strong><br/><span style='color:#6b7280;font-size:12px'>Demo geometric rule</span></td><td>IfcWindow</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule&#x27;s selector matched no elements in this model — no per-element verdicts. Any count in the status columns below is a single class- or model-level marker, not per-element verdicts.'>not applicable</td></tr><tr><td><strong>corridor_width</strong><br/><span style='color:#6b7280;font-size:12px'>NBC 2016, Part 3 §4.3.2</span></td><td>IfcSpace · LongName=LOBBY</td><td>5</td><td title='0 of 5 matched the full selector (class + property filter).' style='color:#92400E;font-weight:600;'>0 / 5<br/><span class='muted small' title='No element of class IfcSpace matched the property filter {&#x27;LongName&#x27;: &#x27;LOBBY&#x27;}.'>filter matched none</span></td><td>0</td><td>0</td><td style='font-style:italic;color:#92400E;' title='Class/model-level marker — not a per-element verdict.'>1<sup>ᵃ</sup></td><td>0</td><td>0</td><td title='Rule&#x27;s selector matched no elements in this model — no per-element verdicts. Any count in the status columns below is a single class- or model-level marker, not per-element verdicts.'>not applicable</td></tr><tr><td><strong>window_vent_ratio</strong><br/><span style='color:#6b7280;font-size:12px'></span></td><td>IfcWindow</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule&#x27;s selector matched no elements in this model — no per-element verdicts. Any count in the status columns below is a single class- or model-level marker, not per-element verdicts.'>not applicable</td></tr><tr><td><strong>DCR_FIRE_02</strong><br/><span style='color:#6b7280;font-size:12px'>NBC 2016, Part 4 §5.2</span></td><td>IfcStair</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule is deferred until a later design stage and was not run.'>stage-filtered</td></tr><tr><td><strong>NBC_ACC_03</strong><br/><span style='color:#6b7280;font-size:12px'>NBC 2016, Part 3 §4.5</span></td><td>IfcRamp</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td title='Rule is deferred until a later design stage and was not run.'>stage-filtered</td></tr></tbody></table><details class="muted small" open style="margin-top:14px;"><summary style="cursor:pointer;font-weight:600;">How to read this table</summary><p style="margin:8px 0 4px;">Each row shows a single rule and how it fared against this model. The columns trace what happened, left to right:</p><ol style="margin:4px 0 8px 18px;line-height:1.55;"><li><strong>In model</strong> — count of elements of the rule&#39;s target class present in the IFC (e.g. 146 <code>IfcSpace</code> entities).</li><li><strong>Selected</strong> — of those, how many also matched the rule&#39;s property filter (e.g. <code>SpaceType=Corridor</code>). When this drops below "In model", the cell is highlighted — the difference is filtered out by the property filter, not missing.</li><li><strong>Pass / Fail / Inc / Hum / Uns</strong> — what verdict the rule gave each <em>Selected</em> element. When <strong>State</strong> is <em>not applicable</em>, any non-zero number here is a single class- or model-level marker (rendered <span style="color:#92400E;font-style:italic;">italic with <sup>ᵃ</sup></span>), not per-element verdicts.</li><li><strong>State</strong> — whether the rule actually ran on real elements:</li></ol><ul style="margin:0 0 0 36px;line-height:1.55;"><li><strong>evaluated</strong> — produced at least one per-element verdict.</li><li><strong>not applicable</strong> — selector matched nothing (In model or Selected was 0). A single class-level marker may be emitted to flag a data tagging gap.</li><li><strong>skipped</strong> — produced no result at all this run.</li><li><strong>stage-filtered</strong> — deferred until a later design stage, not run now.</li></ul><p style="margin:8px 0 0;">The four headline metric cards above (Rules in pack / evaluated / not applicable / skipped) are the rule-axis rollup of the State column. <strong>Elements checked</strong> is the count of distinct elements the rule pack actually verdicted.</p></details></article>
+
+      <article class="card span-12"><h2>Routing flow</h2><p class="muted small">Where non-checkable findings get routed. Link thickness is proportional to the number of findings on each path; left blocks are statuses, right blocks are provider categories (P-cards) with their actor label.</p><svg viewBox="0 0 760 240" width="100%" height="240" role="img" aria-label="Routing flow"><path d="M 190,120.0 C 380.0,120.0 380.0,120.0 570,120.0" stroke="#D97706" stroke-width="33.6" fill="none" stroke-opacity="0.55"><title>6 findings</title></path><rect x="60" y="98.0" width="130" height="44" fill="#D97706" rx="8" /><text x="125.0" y="116.0" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial" font-size="12" font-weight="600">Inconclusive</text><text x="125.0" y="134.0" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial" font-size="13" font-weight="700">5</text><rect x="570" y="98.0" width="130" height="44" fill="#0F766E" rx="8" /><text x="635.0" y="116.0" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial" font-size="12" font-weight="600">P4</text><text x="635.0" y="134.0" text-anchor="middle" fill="#ccfbf1" font-family="Segoe UI, Arial" font-size="11">BIM_manager</text></svg></article>
+
+      <article class="card span-12">
+        <h2>Coverage Gaps</h2>
+        <p class="muted small">Every non-checkable case is named here with its responsible actor and resolved provider route (P-card). No silent skips.</p>
+        <table class="data-table coverage-gaps-table">
+          <thead>
+            <tr><th>Rule ID</th><th>Gap Type</th><th>Count</th><th>Affected Element GUIDs</th><th>Suggested Action</th><th>Responsible Actor</th><th>Provider</th></tr>
+          </thead>
+          <tbody><tr><td>corridor_width</td><td>Data tagging gap</td><td>1</td><td><div class='guid-list'><code class='guid-chip' title='class:IfcSpace'>class:IfcSpace</code></div></td><td>Tag the present elements with the property values the rule requires</td><td>BIM manager</td><td><code class='route-chip' title='BIM manager — data tagging / enrichment'>P4</code><div class='muted small'>BIM manager — data tagging / enrichment</div></td></tr><tr><td>dcr_fire_03</td><td>Data missing</td><td>5</td><td><div class='guid-list'><code class='guid-chip' title='p1'>p1</code><code class='guid-chip' title='p2'>p2</code><code class='guid-chip' title='room1'>room1</code><code class='guid-chip' title='kitchen1'>kitchen1</code><code class='guid-chip' title='bath1'>bath1</code></div></td><td>Add missing properties in authoring tool or run enrichment</td><td>BIM manager</td><td><code class='route-chip' title='BIM manager — data tagging / enrichment'>P4</code><div class='muted small'>BIM manager — data tagging / enrichment</div></td></tr></tbody>
+        </table>
+      </article>
+
+      
+
+      <article class='card span-12'><h2>Waivers and Deviations</h2><p class='muted small'>Waivers are accepted deviations attached to FAIL results. The status never flips — a waived FAIL stays FAIL, with the waiver shown as evidence. An <strong>invalid</strong> waiver is no longer in force (past its expiry date, rule version changed, occasion exhausted, or identity mismatch). A <strong>superseded</strong> waiver is one whose underlying check now passes, so the waiver no longer applies.</p><div class='waiver-chips'><div class='chip chip-open'><span class='chip-num'>1</span>FAIL (open)</div><div class='chip chip-waived'><span class='chip-num'>0</span>FAIL (waived)</div><div class='chip chip-invalid' title='No longer in force — past expiry date, rule version changed, occasion exhausted, or identity mismatch.'><span class='chip-num'>0</span>Waiver invalid</div><div class='chip chip-superseded' title='Underlying check now passes, so the waiver no longer applies.'><span class='chip-num'>0</span>Waiver superseded</div></div><div class='waiver-grid'><p class='muted'>No detailed waiver records to render.</p></div></article>
+
+      <article class="card span-12 category-breakdown">
+        <details open>
+          <summary><h2 style="display:inline-block;margin:0;">Category Breakdown</h2></summary>
+          <p class="muted small">Rules are grouped by category. Expand a category to see its rules, then expand a rule to see the affected element GUIDs by status.</p>
+          <div class="category-tree"><details class='cat-detail' open><summary><strong>Accessibility</strong><span class='count-badge'>7</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 6</span> <span class='pill' style='border-color:#DC2626;color:#DC2626;background:#DC26261A;'>Fail: 1</span></span></summary><div class='cat-body'><details class='rule-detail'><summary><strong>NBC_ACC_03</strong> &mdash; <span class='muted'>Ramp Gradient</span><span class='count-badge'>0</span><span class='pill-row'><span class='muted small'>skipped (no elements matched)</span></span></summary><div class='rule-body'><div class='rule-source muted small'>NBC 2016, Part 3 §4.5</div><p class='muted small'>This rule produced no results in this run.</p></div></details><details class='rule-detail'><summary><strong>NBC_ACC_04</strong> &mdash; <span class='muted'>Door Clear Width</span><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 1</span></span></summary><div class='rule-body'><div class='rule-source muted small'>NBC 2016, Part 3 §4.3.1</div><details class='status-detail'><summary><span class='status-dot' style='background:#16A34A'></span><strong>Pass</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='door1'>door1</code></div></details></div></details><details class='rule-detail'><summary><strong>nbc_acc_01</strong><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#DC2626;color:#DC2626;background:#DC26261A;'>Fail: 1</span></span></summary><div class='rule-body'><div class='rule-source muted small'>NBC 2016, Part 3 §4.3.1</div><details class='status-detail'><summary><span class='status-dot' style='background:#DC2626'></span><strong>Fail</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='door1'>door1</code></div></details></div></details><details class='rule-detail'><summary><strong>nbc_acc_02</strong><span class='count-badge'>5</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 5</span></span></summary><div class='rule-body'><details class='status-detail'><summary><span class='status-dot' style='background:#16A34A'></span><strong>Pass</strong><span class='count-badge'>5</span></summary><div class='guid-list'><code class='guid-chip' title='p1'>p1</code><code class='guid-chip' title='p2'>p2</code><code class='guid-chip' title='room1'>room1</code><code class='guid-chip' title='kitchen1'>kitchen1</code><code class='guid-chip' title='bath1'>bath1</code></div></details></div></details></div></details><details class='cat-detail' open><summary><strong>Fire egress</strong><span class='count-badge'>6</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 1</span> <span class='pill' style='border-color:#D97706;color:#D97706;background:#D977061A;'>Inconclusive: 5</span></span></summary><div class='cat-body'><details class='rule-detail'><summary><strong>DCR_FIRE_02</strong> &mdash; <span class='muted'>Stair Headroom</span><span class='count-badge'>0</span><span class='pill-row'><span class='muted small'>skipped (no elements matched)</span></span></summary><div class='rule-body'><div class='rule-source muted small'>NBC 2016, Part 4 §5.2</div><p class='muted small'>This rule produced no results in this run.</p></div></details><details class='rule-detail'><summary><strong>dcr_fire_01</strong><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 1</span></span></summary><div class='rule-body'><details class='status-detail'><summary><span class='status-dot' style='background:#16A34A'></span><strong>Pass</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='stair1'>stair1</code></div></details></div></details><details class='rule-detail'><summary><strong>dcr_fire_03</strong><span class='count-badge'>5</span><span class='pill-row'><span class='pill' style='border-color:#D97706;color:#D97706;background:#D977061A;'>Inconclusive: 5</span></span></summary><div class='rule-body'><details class='status-detail'><summary><span class='status-dot' style='background:#D97706'></span><strong>Inconclusive</strong><span class='count-badge'>5</span></summary><div class='guid-list'><code class='guid-chip' title='p1'>p1</code><code class='guid-chip' title='p2'>p2</code><code class='guid-chip' title='room1'>room1</code><code class='guid-chip' title='kitchen1'>kitchen1</code><code class='guid-chip' title='bath1'>bath1</code></div></details></div></details></div></details><details class='cat-detail' open><summary><strong>Safety</strong><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 1</span></span></summary><div class='cat-body'><details class='rule-detail'><summary><strong>NBC_SAFE_01</strong> &mdash; <span class='muted'>Railing Height</span><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 1</span></span></summary><div class='rule-body'><div class='rule-source muted small'>NBC 2016, Part 4 §7.2</div><details class='status-detail'><summary><span class='status-dot' style='background:#16A34A'></span><strong>Pass</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='railing1'>railing1</code></div></details></div></details></div></details><details class='cat-detail' open><summary><strong>Spatial</strong><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#D97706;color:#D97706;background:#D977061A;'>Inconclusive: 1</span></span></summary><div class='cat-body'><details class='rule-detail'><summary><strong>corridor_width</strong><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#D97706;color:#D97706;background:#D977061A;'>Inconclusive: 1</span></span></summary><div class='rule-body'><div class='rule-source muted small'>NBC 2016, Part 3 §4.3.2</div><details class='status-detail'><summary><span class='status-dot' style='background:#D97706'></span><strong>Inconclusive</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='class:IfcSpace'>class:IfcSpace</code></div></details></div></details></div></details><details class='cat-detail' open><summary><strong>Ventilation</strong><span class='count-badge'>7</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 5</span> <span class='pill' style='border-color:#9CA3AF;color:#9CA3AF;background:#9CA3AF1A;'>Not applicable: 2</span></span></summary><div class='cat-body'><details class='rule-detail'><summary><strong>NBC_VENT_02</strong> &mdash; <span class='muted'>Window Opening Height</span><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#9CA3AF;color:#9CA3AF;background:#9CA3AF1A;'>Not applicable: 1</span></span></summary><div class='rule-body'><div class='rule-source muted small'>Demo geometric rule</div><details class='status-detail'><summary><span class='status-dot' style='background:#9CA3AF'></span><strong>Not applicable</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='class:IfcWindow'>class:IfcWindow</code></div></details></div></details><details class='rule-detail'><summary><strong>nbc_vent_01</strong><span class='count-badge'>5</span><span class='pill-row'><span class='pill' style='border-color:#16A34A;color:#16A34A;background:#16A34A1A;'>Pass: 5</span></span></summary><div class='rule-body'><details class='status-detail'><summary><span class='status-dot' style='background:#16A34A'></span><strong>Pass</strong><span class='count-badge'>5</span></summary><div class='guid-list'><code class='guid-chip' title='p1'>p1</code><code class='guid-chip' title='p2'>p2</code><code class='guid-chip' title='room1'>room1</code><code class='guid-chip' title='kitchen1'>kitchen1</code><code class='guid-chip' title='bath1'>bath1</code></div></details></div></details><details class='rule-detail'><summary><strong>window_vent_ratio</strong><span class='count-badge'>1</span><span class='pill-row'><span class='pill' style='border-color:#9CA3AF;color:#9CA3AF;background:#9CA3AF1A;'>Not applicable: 1</span></span></summary><div class='rule-body'><details class='status-detail'><summary><span class='status-dot' style='background:#9CA3AF'></span><strong>Not applicable</strong><span class='count-badge'>1</span></summary><div class='guid-list'><code class='guid-chip' title='class:IfcWindow'>class:IfcWindow</code></div></details></div></details></div></details></div>
+        </details>
+      </article>
+
+      <article class="card span-12 axis-grid">
+        <details>
+          <summary><h2 style="display:inline-block;margin:0;">Findings, four views of the same run</h2></summary>
+          <p class="muted small">Counts on four independent axes. No number is the sum of two others by accident. Class- and model-level findings are kept separate from per-element ones.</p>
+          <div class="grid"><article class='card span-3 axis-card'><h3>By rule × element</h3><p class='muted small'>One row per (rule, element) pair — the historical totals.</p><div class='axis-total'>19</div><div class='axis-rows'><div class='axis-row'><span class='axis-label'>Pass</span><span class='axis-value'>13</span></div><div class='axis-row'><span class='axis-label'>Fail</span><span class='axis-value'>1</span></div><div class='axis-row'><span class='axis-label'>Inconclusive</span><span class='axis-value'>5</span></div><div class='axis-row'><span class='axis-label'>Needs human review</span><span class='axis-value'>0</span></div><div class='axis-row'><span class='axis-label'>Not applicable</span><span class='axis-value'>0</span></div><div class='axis-row'><span class='axis-label'>Unsupported</span><span class='axis-value'>0</span></div></div></article><article class='card span-3 axis-card'><h3>By rule</h3><p class='muted small'>One row per rule in the pack.</p><div class='axis-total'>12</div><div class='axis-rows'><div class='axis-row'><span class='axis-label'>Evaluated</span><span class='axis-value'>7</span></div><div class='axis-row'><span class='axis-label'>Not applicable</span><span class='axis-value'>3</span></div><div class='axis-row'><span class='axis-label'>Skipped</span><span class='axis-value'>2</span></div><div class='axis-row'><span class='axis-label'>Any Fail</span><span class='axis-value'>1</span></div><div class='axis-row'><span class='axis-label'>Any needs human review</span><span class='axis-value'>0</span></div></div></article><article class='card span-3 axis-card'><h3>By element</h3><p class='muted small'>One row per element in the model.</p><div class='axis-total'>8</div><div class='axis-rows'><div class='axis-row'><span class='axis-label'>Checked</span><span class='axis-value'>8</span></div><div class='axis-row'><span class='axis-label'>Not checked</span><span class='axis-value'>0</span></div><div class='axis-row'><span class='axis-label'>Any Fail</span><span class='axis-value'>1</span></div><div class='axis-row'><span class='axis-label'>Any needs human review</span><span class='axis-value'>0</span></div></div></article><article class='card span-3 axis-card'><h3>Class &amp; model findings</h3><p class='muted small'>Findings that apply at the class or whole-model level, not to one specific element.</p><div class='axis-total'>3</div><div class='axis-rows'><div class='axis-row'><span class='axis-label'>Pass</span><span class='axis-value'>0</span></div><div class='axis-row'><span class='axis-label'>Fail</span><span class='axis-value'>0</span></div><div class='axis-row'><span class='axis-label'>Inconclusive</span><span class='axis-value'>1</span></div><div class='axis-row'><span class='axis-label'>Not applicable</span><span class='axis-value'>2</span></div></div></article></div>
+        </details>
+      </article>
+
+      <article class="card span-12">
+        <details>
+          <summary><h2 style="display:inline-block;margin:0;">Detailed Failures</h2></summary>
+          <p class="muted small" style="margin-bottom:10px;">1 failures across 1 rule(s). Click a rule to expand.</p><details class="failure-group" style="margin-bottom:10px;"><summary style="cursor:pointer;padding:10px 14px;background:#fff5f5;border:1px solid #fecaca;border-radius:10px;"><span class="badge" style="background:#DC2626;margin-right:8px;">FAIL</span><strong>nbc_acc_01</strong><span class="count-badge" style="margin-left:10px;">1</span></summary><div class="failure-grid" style="margin-top:10px;"><article class="failure-card"><div class="failure-header"><span class="badge" style="background:#DC2626">FAIL</span><strong>nbc_acc_01</strong></div><p class="detail-line"><strong>Element:</strong> door1</p><p class="detail-line"><strong>Message:</strong> Wheelchair approach blocked: 2 modeled obstruction(s) intrude into the required manoeuvring zones on both pull/push assignments</p><p class="detail-line"><strong>Blocking elements:</strong> railing1, stair1</p><p class="detail-line"><strong>Fix:</strong> Clear the approach zones on both sides of the door or relocate the obstructing elements.</p></article></div></details>
+        </details>
+      </article>
+
+      <article class="card span-12">
+        <details>
+          <summary><h2 style="display:inline-block;margin:0;">Top Findings and Blockers</h2></summary>
+          <div class="grid">
+            <div class="span-4 list-card">
+              <h3>Top Failed Rules</h3>
+              <ul><li><strong>nbc_acc_01</strong><span>1 failures</span></li></ul>
+            </div>
+            <div class="span-4 list-card">
+              <h3>Top Failed Elements</h3>
+              <ul><li><strong>door1</strong><span>1 failures</span></li></ul>
+            </div>
+            <div class="span-4 list-card">
+              <h3>Most Frequent Blockers</h3>
+              <ul><li><strong>railing1</strong><span>1 impacts</span></li><li><strong>stair1</strong><span>1 impacts</span></li></ul>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="card span-12">
+        <details>
+          <summary><h2 style="display:inline-block;margin:0;">Flagship Spatial and Topology Findings</h2></summary>
+          <div class="insight-grid"><article class="insight-card"><div class="insight-type">Spatial Conflict</div><h4>nbc_acc_01</h4><p>Wheelchair approach blocked: 2 modeled obstruction(s) intrude into the required manoeuvring zones on both pull/push assignments</p><p class="muted">Element: door1</p><p class="muted">Blockers: railing1, stair1</p></article></div>
+        </details>
+      </article>
+
+      <article class="card span-12">
+        <details>
+          <summary><h2 style="display:inline-block;margin:0;">Clause Coverage</h2></summary>
+          <table class="data-table">
+            <thead>
+              <tr><th>Clause Reference</th><th>Rule IDs</th><th>Automatable</th><th>Rationale</th></tr>
+            </thead>
+            <tbody><tr><td>NBC 2016, Part 3 §4.3.1</td><td>NBC_ACC_04</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 3 §4.5</td><td>NBC_ACC_03</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 3 §4.6 — Tactile Warning Strips</td><td>—</td><td>No</td><td>Requires visual inspection of tactile surface placement and material</td></tr><tr><td>NBC 2016, Part 3 §4.7 — Signage and Wayfinding</td><td>—</td><td>No</td><td>Requires subjective judgment of signage adequacy and legibility</td></tr><tr><td>NBC 2016, Part 4 §5.2</td><td>DCR_FIRE_02</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 4 §7.2</td><td>NBC_SAFE_01</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 4 §5.4 — Fire Escape Stair Width</td><td>dcr_fire_01</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 4 §5.6 — Travel Distance to Exit</td><td>dcr_fire_03</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 8 §3.4.1 — Natural Ventilation Area Ratio</td><td>nbc_vent_01, window_vent_ratio</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 3 §4.2 — Accessible Toilet Dimensions</td><td>nbc_acc_02</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 3 §4.1 — Door Approach Clearance</td><td>nbc_acc_01</td><td>Yes</td><td></td></tr><tr><td>Mumbai DCR 2034, Reg. 36 — FSI Computation</td><td>—</td><td>No</td><td>Requires external plot data, FSI tables, and zoning context not yet integrated</td></tr><tr><td>Mumbai DCR 2034, Reg. 43 — Open Space Requirements</td><td>—</td><td>No</td><td>Requires site boundary and setback data as external input</td></tr><tr><td>Demo geometric rule</td><td>NBC_VENT_02</td><td>Yes</td><td></td></tr><tr><td>NBC 2016, Part 3 §4.3.2</td><td>corridor_width</td><td>Yes</td><td></td></tr></tbody>
+          </table>
+        </details>
+      </article>
+
+      <article class="card span-12">
+        <details>
+          <summary><h2 style="display:inline-block;margin:0;">Run Metadata</h2></summary>
+          <div class="grid">
+            <div class="span-6">
+              <h3>Model Details</h3>
+              <table class="meta-table">
+                <tr><td>Model</td><td>Demo elements</td></tr>
+                <tr><td>Stage</td><td>concept</td></tr>
+                <tr><td>Run context</td><td>CLI (headless)</td></tr>
+                <tr><td>Rule Preset</td><td>custom</td></tr>
+                <tr><td>Model Path</td><td>n/a</td></tr>
+                <tr><td>Rules Path</td><td>arc\core\rules</td></tr>
+              </table>
+            </div>
+            <div class="span-6">
+              <h3>Advanced Insights</h3>
+              <table class="meta-table">
+                <tr><td>Unique blockers</td><td>2</td></tr>
+                <tr><td>Route analyses</td><td>0</td></tr>
+                <tr><td>Longest route</td><td>—</td></tr>
+                <tr><td>Average route</td><td>—</td></tr>
+                <tr><td>Measurement methods</td><td>approach_zone_aabb</td></tr>
+              </table>
+            </div>
+          </div>
+        </details>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

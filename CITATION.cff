@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use ARC, please cite the DBP26 paper below."
+title: "ARC — Assessable Regulatory Compliance"
+version: 0.1.0
+license:
+  - Apache-2.0        # arc/core
+  - GPL-3.0-or-later  # arc/spatial and the Blender extension
+authors:
+  - family-names: Nanduri
+    given-names: Sudheer Kumar
+    affiliation: Indian Institute of Technology Bombay
+  - family-names: Karmakar
+    given-names: Ankan
+    affiliation: Indian Institute of Technology Bombay
+  - family-names: Delhi
+    given-names: Venkata Santosh Kumar
+    affiliation: Indian Institute of Technology Bombay
+preferred-citation:
+  type: conference-paper
+  title: "ARC: Open infrastructure towards assessable regulation compliance checking"
+  conference:
+    name: "International Conference on Digital Building Permits (DBP26)"
+  year: 2026
+  publisher:
+    name: "Taylor & Francis (CRC Press)"
+  authors:
+    - family-names: Nanduri
+      given-names: Sudheer Kumar
+    - family-names: Karmakar
+      given-names: Ankan
+    - family-names: Delhi
+      given-names: Venkata Santosh Kumar

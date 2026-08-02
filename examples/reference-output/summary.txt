@@ -1,0 +1,34 @@
+============================================================
+  ARC — Headless Compliance Report
+============================================================
+  Source:         Demo elements
+  Rules applied:  12 rule(s)
+  Stage:          concept
+  Elements:       8
+  Timestamp:      2026-08-02T06:50:01.007460+00:00
+
+  RESULTS (pair axis — one entry per rule-element pair):
+    PASS:               13  (68%)
+    FAIL:                1  (5%)
+    INCONCLUSIVE:        5  (26%)
+    HUMAN_REQUIRED:      0  (0%)
+    NOT_APPLICABLE:      0  (0%)
+    UNSUPPORTED:         0  (0%)
+    (+ 3 aggregate-scope rows, not in the pair-axis totals)
+
+  Per-element checkability: 14/19 pairs fully checkable (73%)
+  Per-rule checkability:    6/12 rules executable (50%)
+  Critical failures:        1
+  Coverage gaps:            2
+
+  STAGE EXIT CRITERIA (concept):
+    Checkability:  63.6% (min 30.0%) [OK]
+    Critical:      1 unresolved (max 999) [OK]
+    Overall:       MET
+
+  Reports saved to:
+    examples\reference-output\compliance_results.json
+    examples\reference-output\compliance_report.html
+    examples\reference-output\compliance_report.pdf
+    examples\reference-output\issues.bcfzip
+============================================================

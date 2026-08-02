@@ -1,0 +1,26 @@
+ARC-Core is licensed under the Apache License, Version 2.0.
+
+    Copyright 2026 Sudheer Kumar Nanduri, Ankan Karmakar,
+                   Venkata Santosh Kumar Delhi
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+The full licence text is at ../../LICENSES/Apache-2.0.txt
+
+Everything under this directory is Apache-2.0. This directory contains no
+Blender and no IFC imports and may be vendored independently of the rest of
+the repository. Do not introduce a GPL-licensed import here: doing so would
+make the combined work GPL and break the licence split described in the
+repository root LICENSE file.
+
+`arc/spatial/` is GPL-3.0-or-later. See ../../LICENSE for the full mapping.

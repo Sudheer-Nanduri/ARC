@@ -1,0 +1,140 @@
+{
+  "rule_id": "nbc_acc_01",
+  "element_id": "door1",
+  "status": "FAIL",
+  "passed": false,
+  "message": "Wheelchair approach blocked: 2 modeled obstruction(s) intrude into the required manoeuvring zones on both pull/push assignments",
+  "details": {
+    "measurement_method": "approach_zone_aabb",
+    "zone_width_m": 1.5,
+    "pull_depth_m": 1.5,
+    "push_depth_m": 1.2,
+    "blocking_elements": [
+      "railing1",
+      "stair1"
+    ],
+    "viz": [
+      {
+        "type": "clearance_zone",
+        "aabb": {
+          "min": [
+            -0.25,
+            0.2,
+            0
+          ],
+          "max": [
+            1.25,
+            1.7,
+            2.0
+          ]
+        },
+        "label": "Approach zone A (1.5m)"
+      },
+      {
+        "type": "clearance_zone",
+        "aabb": {
+          "min": [
+            -0.25,
+            -1.5,
+            0
+          ],
+          "max": [
+            1.25,
+            0,
+            2.0
+          ]
+        },
+        "label": "Approach zone B (1.5m)"
+      },
+      {
+        "type": "bbox",
+        "aabb": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            3.0,
+            0.1,
+            1.1
+          ]
+        },
+        "color": "blocker",
+        "label": "Obstruction"
+      },
+      {
+        "type": "bbox",
+        "aabb": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1.8,
+            4.0,
+            3.0
+          ]
+        },
+        "color": "blocker",
+        "label": "Obstruction"
+      }
+    ],
+    "assumptions": [
+      "Approach zones constructed from door AABB; swing direction unknown",
+      "Zone containment within the storey boundary not verified from AABB data"
+    ],
+    "suggestion": "Clear the approach zones on both sides of the door or relocate the obstructing elements."
+  },
+  "aabb": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      1.0,
+      0.2,
+      2.1
+    ]
+  },
+  "measured_value": null,
+  "expected_value": null,
+  "delta": null,
+  "tolerance": 0.0,
+  "confidence": {
+    "semantic": 0.0,
+    "geometry": 0.0,
+    "topology": 0.0
+  },
+  "severity": "critical",
+  "category": "accessibility",
+  "timestamp": "2026-08-02T06:50:01.003203+00:00",
+  "measurement_method": "python_rule",
+  "measurement_source": "python_rule",
+  "geometry_tier": null,
+  "evidence": {
+    "rule_version": "1.0.0",
+    "rule_source": "NBC 2016, Part 3 §4.3.1",
+    "element_guid": "door1",
+    "geometry_tier": "aabb",
+    "measurement_method": "python_rule",
+    "measurement_source": "python_rule",
+    "confidence_label": "approximate",
+    "external_data_used": [],
+    "enrichment_sources": {},
+    "assumptions": [],
+    "compound_approximation": false,
+    "timestamp": "2026-08-02T06:50:01.003224+00:00",
+    "arc_version": "0.1.0"
+  },
+  "human_reason": null,
+  "arrival_path": null,
+  "scope": "element",
+  "affected_element_ids": [],
+  "waiver": null,
+  "waiver_state": null,
+  "waiver_invalidation_reason": null,
+  "provider_route": null
+}

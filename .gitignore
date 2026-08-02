@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Packaging / build output
+dist/
+build/
+*.egg-info/
+arc-*.zip
+
+# Run output (regenerable — see examples/reference-output/ for a committed sample)
+results/
+tests/_tmp/
+
+# Blender
+*.blend1
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Created at runtime by arc.spatial.install.ensure_deps()
+libs/

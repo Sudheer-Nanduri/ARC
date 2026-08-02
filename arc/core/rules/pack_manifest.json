@@ -1,0 +1,22 @@
+{
+  "pack_id": "nbc_dcr_india_v1",
+  "version": "1.0.0",
+  "jurisdiction": "India",
+  "author": "ARC Team",
+  "description": "National Building Code 2016 and Mumbai DCR 2034 compliance rules",
+  "required_check_types": [
+    "min_width", "min_height", "min_area",
+    "property_max", "property_min",
+    "min_dimensions_2d", "clearance_zone",
+    "turning_circle", "ratio",
+    "distance_to_nearest", "count_nearby"
+  ],
+  "governance_status": "draft",
+  "effective_date": "2016-01-01",
+  "superseded_date": null,
+  "rule_ids": [
+    "NBC_ACC_04", "DCR_FIRE_02", "NBC_VENT_02", "NBC_SAFE_01", "NBC_ACC_03",
+    "corridor_width", "dcr_fire_01", "dcr_fire_03",
+    "nbc_acc_01", "nbc_acc_02", "nbc_vent_01", "window_vent_ratio"
+  ]
+}

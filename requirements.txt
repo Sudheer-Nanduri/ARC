@@ -1,0 +1,18 @@
+# Runtime dependencies bundled into the Blender extension wheelhouse.
+#
+# `python scripts/build_addon.py --download-wheels` reads this file and
+# downloads each entry into arc/wheelhouse/, which blender_manifest.toml then
+# declares. Keep this list to runtime dependencies only - anything added here
+# is shipped inside the extension zip.
+#
+# Development and test dependencies live in pyproject.toml
+# ([project.optional-dependencies] dev), not here.
+
+# Topology graph and pathfinding (required by arc.core.topology_engine)
+networkx>=3.0
+
+# PDF report generation. Optional at runtime - ARC degrades to JSON/HTML/BCF.
+# Note: reportlab >= 4 imports PIL from reportlab.lib.utils, so PDF output also
+# needs pillow. pillow ships platform-specific wheels and is therefore not
+# bundled here - see INSTALL.md for enabling PDF export inside Blender.
+reportlab>=4.0

@@ -1,0 +1,41 @@
+# Blender 4.2+ Extension Manifest
+# https://docs.blender.org/manual/en/latest/extensions/getting_started.html
+
+schema_version = "1.0.0"
+
+id          = "arc"
+version     = "0.1.0"
+name        = "Assessable Regulatory Compliance - Spatial Aspects"
+tagline     = "IFC & Blender based spatial code compliance checker"
+maintainer  = "Sudheer Kumar Nanduri"
+type        = "add-on"
+
+# Blender compatibility - 4.2 minimum
+blender_version_min = "4.2.0"
+
+# Extension tags shown in the marketplace
+tags = ["3D View", "BIM", "IFC", "Compliance"]
+
+# The extension bundles ARC-Spatial (GPL-3.0-or-later) together with ARC-Core
+# (Apache-2.0), so the distributed add-on as a whole is GPL-3.0-or-later.
+# See the repository LICENSE for the path-to-licence mapping.
+license     = ["SPDX:GPL-3.0-or-later", "SPDX:Apache-2.0"]
+copyright   = ["2026 Sudheer Kumar Nanduri, Ankan Karmakar, Venkata Santosh Kumar Delhi"]
+
+# Runtime wheel dependencies (pure-Python, platform-independent).
+# Blender installs these automatically on first enable via its extension system.
+#
+# networkx is required. reportlab drives the optional PDF report and, from
+# version 4 onward, imports PIL via reportlab.lib.utils - so PDF export also
+# needs pillow. pillow publishes platform- and Python-version-specific wheels,
+# which would require a per-platform `platforms` matrix here, so it is not
+# bundled; see INSTALL.md for enabling PDF export. Without it ARC still emits
+# JSON, HTML, and BCF.
+wheels = [
+    "./wheelhouse/reportlab-4.4.10-py3-none-any.whl",
+    "./wheelhouse/networkx-3.6.1-py3-none-any.whl",
+]
+
+[permissions]
+files   = "Reads IFC files and writes compliance reports"
+network = "Not required; bundled wheels included"

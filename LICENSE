@@ -1,0 +1,67 @@
+ARC — Licensing
+===============
+
+ARC is split into two parts with different licences. The split follows the
+Core/Spatial architecture: ARC-Core is a permissively licensed library, and
+ARC-Spatial is a Blender add-on, which Blender requires to be GPL.
+
+    Copyright 2026 Sudheer Kumar Nanduri, Ankan Karmakar,
+                   Venkata Santosh Kumar Delhi
+
+
+Which licence applies to which file
+-----------------------------------
+
+| Path                          | Licence                | SPDX identifier      |
+|-------------------------------|------------------------|----------------------|
+| `arc/core/**`                 | Apache License 2.0     | `Apache-2.0`         |
+| `run_checks.py`               | Apache License 2.0     | `Apache-2.0`         |
+| `tests/core/**`, `conftest.py`| Apache License 2.0     | `Apache-2.0`         |
+| `arc/spatial/**`              | GNU GPL v3 or later    | `GPL-3.0-or-later`   |
+| `arc/__init__.py`             | GNU GPL v3 or later    | `GPL-3.0-or-later`   |
+| `scripts/build_addon.py`      | GNU GPL v3 or later    | `GPL-3.0-or-later`   |
+| `tests/spatial/**`            | GNU GPL v3 or later    | `GPL-3.0-or-later`   |
+
+Every source file carries an `SPDX-License-Identifier` header stating its
+licence. Where a file has no header, the table above governs.
+
+Full licence texts:
+
+  * `LICENSES/Apache-2.0.txt`
+  * `LICENSES/GPL-3.0-or-later.txt`
+
+
+What this means in practice
+---------------------------
+
+**If you use ARC-Core only** — the rule engine, evidence model, reporting, and
+the headless CLI — you are working under Apache-2.0. You may embed it in
+proprietary or differently licensed software, subject to the Apache-2.0
+attribution and NOTICE requirements. `arc/core/` contains no Blender and no
+IFC imports, so it can be vendored on its own.
+
+**If you use ARC-Spatial**, the Blender extension, or the distributed package
+as a whole, the combined work is governed by GPL-3.0-or-later. Apache-2.0 is
+one-way compatible with GPLv3: Apache-2.0 code may be combined into a GPLv3
+work, and the result is GPLv3. The reverse is not permitted, which is why
+`arc/core/` must stay free of any GPL-licensed import.
+
+**The published Python distribution** currently ships both parts in a single
+package, so the artefact as distributed is effectively GPL-3.0-or-later even
+though `arc/core/` is separately available under Apache-2.0. To take ARC-Core
+under Apache-2.0 alone, use `arc/core/` from the repository; it stands on its
+own. Separate `arc-core` and `arc-spatial` distributions are planned for a
+future release.
+
+**The Blender extension** (`arc-0.1.0.zip`) is GPL-3.0-or-later, as Blender
+add-ons must be.
+
+
+Third-party material
+--------------------
+
+The licences above cover ARC's own source only. Redistributed third-party
+material — the bundled NetworkX and ReportLab wheels, and the xBim sample-house
+model — remains under its own terms, recorded in `THIRD-PARTY-NOTICES.md`.
+Regulation documents referenced by the rule packs are not redistributed at all;
+see `regulations/README.md`.

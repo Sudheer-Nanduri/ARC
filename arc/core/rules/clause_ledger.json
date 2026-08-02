@@ -1,0 +1,80 @@
+[
+  {
+    "clause_ref": "NBC 2016, Part 3 §4.3.1",
+    "rule_ids": ["NBC_ACC_04"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 3 §4.5",
+    "rule_ids": ["NBC_ACC_03"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 3 §4.6 — Tactile Warning Strips",
+    "rule_ids": [],
+    "automatable": false,
+    "rationale": "Requires visual inspection of tactile surface placement and material"
+  },
+  {
+    "clause_ref": "NBC 2016, Part 3 §4.7 — Signage and Wayfinding",
+    "rule_ids": [],
+    "automatable": false,
+    "rationale": "Requires subjective judgment of signage adequacy and legibility"
+  },
+  {
+    "clause_ref": "NBC 2016, Part 4 §5.2",
+    "rule_ids": ["DCR_FIRE_02"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 4 §7.2",
+    "rule_ids": ["NBC_SAFE_01"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 4 §5.4 — Fire Escape Stair Width",
+    "rule_ids": ["dcr_fire_01"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 4 §5.6 — Travel Distance to Exit",
+    "rule_ids": ["dcr_fire_03"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 8 §3.4.1 — Natural Ventilation Area Ratio",
+    "rule_ids": ["nbc_vent_01", "window_vent_ratio"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 3 §4.2 — Accessible Toilet Dimensions",
+    "rule_ids": ["nbc_acc_02"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "NBC 2016, Part 3 §4.1 — Door Approach Clearance",
+    "rule_ids": ["nbc_acc_01"],
+    "automatable": true,
+    "rationale": null
+  },
+  {
+    "clause_ref": "Mumbai DCR 2034, Reg. 36 — FSI Computation",
+    "rule_ids": [],
+    "automatable": false,
+    "rationale": "Requires external plot data, FSI tables, and zoning context not yet integrated"
+  },
+  {
+    "clause_ref": "Mumbai DCR 2034, Reg. 43 — Open Space Requirements",
+    "rule_ids": [],
+    "automatable": false,
+    "rationale": "Requires site boundary and setback data as external input"
+  }
+]
